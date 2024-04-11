@@ -2887,7 +2887,7 @@ var getVars = () => {
   if (!Object.values(STRATEGIES).includes(options.strategy)) {
     throw new TypeError(`Unknown strategy ${options.strategy}`);
   }
-  const cacheDir = path__default.default.join("/private/tmp/local_cache", GITHUB_REPOSITORY, options.key);
+  const cacheDir = path__default.default.join(RUNNER_TOOL_CACHE, GITHUB_REPOSITORY, options.key);
   const cachePath = path__default.default.join(cacheDir, options.path);
   const targetPath = path__default.default.resolve(CWD, options.path);
   const { dir: targetDir } = path__default.default.parse(targetPath);
