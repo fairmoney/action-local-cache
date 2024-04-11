@@ -2,7 +2,8 @@ import path from 'path'
 
 import * as core from '@actions/core'
 
-const { GITHUB_REPOSITORY, RUNNER_TOOL_CACHE } = process.env
+const { GITHUB_REPOSITORY} = process.env
+const RUNNER_TOOL_CACHE = "/private/tmp/local_cache";
 const CWD = process.cwd()
 
 export const STRATEGIES = ['copy-immutable', 'copy', 'move'] as const
@@ -21,10 +22,6 @@ type Vars = {
 }
 
 export const getVars = (): Vars => {
-  if (!RUNNER_TOOL_CACHE) {
-    throw new TypeError('Expected RUNNER_TOOL_CACHE environment variable to be defined.')
-  }
-
   if (!GITHUB_REPOSITORY) {
     throw new TypeError('Expected GITHUB_REPOSITORY environment variable to be defined.')
   }

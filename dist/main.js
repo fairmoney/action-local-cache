@@ -2867,7 +2867,8 @@ var import_io_util = __toESM(require_io_util());
 
 // src/lib/getVars.ts
 var core = __toESM(require_core());
-var { GITHUB_REPOSITORY, RUNNER_TOOL_CACHE } = process.env;
+var { GITHUB_REPOSITORY } = process.env;
+var RUNNER_TOOL_CACHE = "/private/tmp/local_cache";
 var CWD = process.cwd();
 var STRATEGIES = ["copy-immutable", "copy", "move"];
 var getVars = () => {
