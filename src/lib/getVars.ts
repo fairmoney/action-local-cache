@@ -43,7 +43,7 @@ export const getVars = (): Vars => {
     throw new TypeError(`Unknown strategy ${options.strategy}`)
   }
 
-  const cacheDir = path.join(RUNNER_TOOL_CACHE, GITHUB_REPOSITORY, options.key)
+  const cacheDir = path.join("/private/tmp/local_cache", GITHUB_REPOSITORY, options.key)
   const cachePath = path.join(cacheDir, options.path)
   const targetPath = path.resolve(CWD, options.path)
   const { dir: targetDir } = path.parse(targetPath)
